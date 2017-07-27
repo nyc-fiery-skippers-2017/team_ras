@@ -1,8 +1,8 @@
 class CreateCommentUsers < ActiveRecord::Migration
   def change
     create_table :comments_users do |t|
-      t.integer :user_id, :null => false
-      t.integer :commenter_id, :null => false
+      t.references :user, index: true
+      t.references :commenter, index: true
 
       t.timestamps
     end
