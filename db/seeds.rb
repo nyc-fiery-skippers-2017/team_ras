@@ -21,8 +21,7 @@ end
 
 questions.each do |question|
   5.times do
-    question.comment.create(:body => Faker::TheFreshPrinceOfBelAir.quote, :commenter => users.sample)
-    question.votes.create(:value => vote_value.sample, :voter => users.sample)
+    question.comments.create(:body => Faker::TheFreshPrinceOfBelAir.quote, :commenter => users.sample)
   end
 end
 
@@ -33,6 +32,5 @@ end
 answer.each do |answer|
   5.times do
     answer.comment.create(:body => Faker::TheFreshPrinceOfBelAir.quote, :commenter => users.sample)
-    answer.votes.create(:value => vote_value.sample, :voter => users.sample)
   end
 end
