@@ -16,21 +16,21 @@ vote_value = [1,-1]
 end
 
 200.times do
-  questions << Question.create(:title => 'Who Said This Quote?', :body => Faker::RickAndMorty.quote, :creator => users.sample)
+  questions << Question.create(:title => 'What does this mean?!', :body => Faker::Lorem.paragraph, :creator => users.sample)
 end
 
 questions.each do |question|
   5.times do
-    question.comments.create(:body => Faker::TheFreshPrinceOfBelAir.quote, :commenter => users.sample)
+    question.comments.create(:body => Faker::Lorem.sentences, :commenter => users.sample)
   end
 end
 
 200.times do
-  answers << Answer.create(:body => Faker::RickAndMorty.character, :responder => users.sample, :question => questions.sample)
+  answers << Answer.create(:body => Faker::Lorem.words, :responder => users.sample, :question => questions.sample)
 end
 
-answer.each do |answer|
+answers.each do |answer|
   5.times do
-    answer.comment.create(:body => Faker::TheFreshPrinceOfBelAir.quote, :commenter => users.sample)
+    answer.comments.create(:body => Faker::Lorem.words, :commenter => users.sample)
   end
 end
