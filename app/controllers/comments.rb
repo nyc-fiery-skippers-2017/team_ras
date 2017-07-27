@@ -15,3 +15,11 @@ put '/comments/:id/edit' do
   comment.update(body: params[:body])
   redirect "/questions/#{@answer.question_id}"
 end
+
+# may do a delete -- if have time :)
+
+# delete '/comments/:id' do
+#   comment = Comment.find_by(id: params[:id])
+#   comment.destroy
+#   redirect
+# end
