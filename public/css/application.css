@@ -1,0 +1,43 @@
+/* Question Form styles */
+.question_title {
+  padding-left: 20px;
+}
+
+.question_form {
+  padding: 20px;
+}
+
+.question_form label, .question_form textarea {
+  display: block;
+  padding-bottom: 10px;
+}
+
+.question_form label {
+  font-weight: 700;
+}
+
+.question_form input, .question_form textarea {
+  margin-bottom: 20px;
+}
+
+.question_form #title {
+  height: 30px;
+  width: 655px;
+  padding: 0 5px;
+}
+
+.question_form #question_body {
+  padding: 5px;
+}
+
+.question_form input[type="submit"] {
+  background-color: darkred;
+  border: none;
+  padding: 10px;
+  color: white;
+  font-weight: 700;
+}
+
+.question_form input[type="submit"]:hover {
+  background-color: red;
+}
