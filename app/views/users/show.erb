@@ -1,0 +1,30 @@
+<h1><%=@user.username.capitalize%>'s Profile</h1>
+  <p>Users Email:<%= @user.email  %></p>
+  <h2>User Comment Info</h2>
+  <div>
+  <% @user.comments.each do |comment_info| %>
+  <p><strong>Comment Id:</strong><%= comment_info.id %></p>
+    <p>User Id:<%= comment_info.commenter_id %></p>
+    <p>Comment body:<%= comment_info.body %></p>
+  <% end %>
+</div>
+
+<h2>User Question info</h2>
+<div>
+<% @user.questions.each do |question_info| %>
+  <p>Question Id:<%= question_info.id %></p>
+  <p>Question Body:<%= question_info.body %></p>
+  <p>Creator Id:<%= question_info.creator_id %></p>
+<% end %>
+</div>
+
+<h2>User Answer info</h2>
+<div>
+<% @user.answers.each do |answer_info| %>
+  <p>Answer Id:<%= answer_info.id %></p>
+  <p>Answer Body:<%= answer_info.body %></p>
+  <p>Responder Id:<%= answer_info.responder_id %></p>
+  <p>Question Id:<%= answer_info.question_id %></p>
+<% end %>
+</div>
+<a href="/logout">Logout</a>
