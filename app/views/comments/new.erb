@@ -1,0 +1,6 @@
+<h1>Create a new comment</h1>
+<form action="/comments/<%= @answer.id %>" method="post">
+ <label>Comment:</label>
+ <input type="textarea" name="body">
+ <input type="submit" value="Create">
+</form>
