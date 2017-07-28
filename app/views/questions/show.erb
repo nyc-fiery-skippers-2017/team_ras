@@ -39,9 +39,9 @@
 </div>
 
   <h3>Answers:</h3>
-  <ul>
+  <ul class="answer-list">
     <% @question.answers.each do |answer| %>
-    <li><%= answer.body %></li>
+    <%= erb :'_answer', locals: {answer: answer}, layout: false%>
       <ul class="comments-list">
         <h4>Comments:</h4>
         <% answer.comments.each do |comment| %>
@@ -60,7 +60,7 @@
 
   <p>Add your answer here:</p>
   <div class="answer_container">
-    <form action="/answers/<%= @question.id %>" method="post">
+    <form action="/answers/<%= @question.id %>" method="post" class="new-answer">
       <input type="textarea" name="body">
       <input type="submit" name="Add answer">
     </form>

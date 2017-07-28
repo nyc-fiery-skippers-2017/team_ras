@@ -9,16 +9,18 @@ end
 
 post '/questions' do
   if logged_in?
-    @question = Question.new(creator_id: current_user.id, title: params[:title], body: params[:question_body])
+  @question = Question.new(creator: current_user.id, title: params[:title], body: params[:body])
     if @question.save
-      redirect "/questions/#{@question.id}"
+      if request.xhr?
+        erb :'_comments', locals: {answer: answer}, layout: false
+      else
+        @errors = ["An error occured..."]
+        erb :'/questions/new'
+      end
     else
-      @errors = ["An error occured..."]
-      erb :'/questions/new'
+      @errors = ["Please log in..."]
+      redirect '/login'
     end
-  else
-    @errors = ["Please log in..."]
-    redirect '/login'
   end
 end
 
