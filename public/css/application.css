@@ -41,3 +41,10 @@
 .question_form input[type="submit"]:hover {
   background-color: red;
 }
+.custom-container-profile-page {
+    padding: 0px 50px;
+}
+
+.DBC {
+  vertical-align: text-bottom;
+}
