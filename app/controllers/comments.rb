@@ -6,11 +6,12 @@ post '/comments/:answer_id' do
     if request.xhr?
       erb :'_comments', locals: {comment: comment}, layout: false
     else
+
       redirect "/questions/#{@answer.question_id}"
     end
   else
-    @errors = ["Comment could not be saved", "Please try again"]
-    redirect "/questions/#{@answer.question_id}"
+    @errors = ["Please login to add answers and comments"]
+    redirect '/login'
   end
 end
 
