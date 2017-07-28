@@ -1,8 +1,8 @@
 post '/comments/:answer_id' do
   #:id here is the answer id
   @answer = Answer.find_by(id: params[:answer_id])
-  @comment = Comment.new(body: params[:body], commenter: current_user.id, commentable: @answer)
-  if @comment.save
+  comment = Comment.new(body: params[:body], commenter: current_user.id, commentable: @answer)
+  if comment.save
     redirect "/questions/#{@answer.question_id}"
   else
     @errors = ["Comment could not be saved", "Please try again"]

@@ -21,16 +21,16 @@ end
 
 questions.each do |question|
   5.times do
-    question.comments.create(:body => Faker::Lorem.sentences, :commenter => users.sample)
+    question.answers.create(:body => Faker::Hipster.sentence, :responder => users.sample)
   end
 end
 
 200.times do
-  answers << Answer.create(:body => Faker::Lorem.words, :responder => users.sample, :question => questions.sample)
+  answers << Answer.create(:body => Faker::Hipster.sentence, :responder => users.sample, :question => questions.sample)
 end
 
 answers.each do |answer|
   5.times do
-    answer.comments.create(:body => Faker::Lorem.words, :commenter => users.sample)
+    answer.comments.create(:body => Faker::Hipster.sentence(3), :commenter => users.sample)
   end
 end
