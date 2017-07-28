@@ -12,7 +12,6 @@ $(document).ready(function() {
       data: data
     })
     .done(function(response){
-
       $(".comments-list").append(response);
       $(".comments_stuff").trigger("reset");
     })
@@ -31,7 +30,7 @@ $(document).ready(function() {
       data: data
     })
     .done(function(response){
-      $(".answer").append(response);
+      $(".answer-list").prepend(response);
     })
   })
 });
