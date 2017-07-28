@@ -1,4 +1,14 @@
 <div class="question_container">
+  <form class="" action="/questions/<%= @question.id %>/vote" method="post">
+    <button type="submit" name="submit_param" value="submit_value"></button>
+  </form>
   <h3><%= @question.title %></h3>
-  <p><%= @question.body %></p>
+  <h5><%= @question.body %></h5>
+  <p>
+    <span class="points"><%= @question.votes %></span>
+    <span class="creator"><%= @question.creator %></span>
+    <span class="timestamp"><%= @question.time_since_creation %></span>
+    <span class="comment-count"><%= @question.answers.comments.count %></span>
+    <a class="delete" href="/questions/<%= @question.id %>"></a>
+  </p>
 </div>

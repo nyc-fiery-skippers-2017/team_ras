@@ -18,5 +18,12 @@ post '/questions' do
 end
 
 get '/questions/:id' do
+  @question = Question.find_by(id: params[:id])
   erb :'/questions/show'
+end
+
+post '/questions/:id/vote' do
+  @question = Question.find(params[:id])
+  @vote = @question.votes.create(value:1)
+  redirect "/questions/#{@question.id}"
 end

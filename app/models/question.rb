@@ -5,5 +5,13 @@ class Question < ActiveRecord::Base
 
   belongs_to :creator, :class_name => 'User'
 
-  validates :title, :body, :presence => true 
+  validates :title, :body, :presence => true
+
+  def points
+    votes.sum(:value)
+  end
+
+  def time_since_creation
+    ((Time.now - created_at) / 3600).round
+  end
 end
