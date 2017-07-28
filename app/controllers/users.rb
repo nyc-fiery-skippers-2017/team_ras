@@ -9,10 +9,10 @@ end
 post '/login' do
   @user = User.find_by(username: params[:user][:username])
   if @user && @user.authenticate(params[:user][:password])
-    session[:user_id] = current_user
+    session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
   else
-    redirect '/users'
+    redirect '/login'
   end
 end
 #User Homepage?
@@ -27,9 +27,9 @@ get '/users/new' do
 end
 
 post '/users' do
-  @user = User.create(params[:user])
-  if @user.valid?
-    session[:user_id] = current_user
+  @user = User.new(params[:user])
+  if @user.save
+    session[:user_id] = @user.id
     redirect "/users/#{@user.id}"
   else
     @errors = @user.errors.full_messages
@@ -39,15 +39,13 @@ end
 
 #Users Profile
 get '/users/:id' do
-  @user = User.find_by(id: params[:id])
   #turning this on requires you to login with a password
   # if logged_in?
-  #   @user = current_user
-  #   erb :'/users/show'
+    @user = User.find_by(id: params[:id])
+    erb :'/users/show'
   # else
   #  redirect '/login'
   # end
-  erb :'/users/show'
 end
 
 #Route could change to Homepage
