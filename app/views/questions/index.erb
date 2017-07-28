@@ -3,5 +3,12 @@
   <% @questions.each do |question| %>
   <a href="/questions/<%= question.id %>"><h3><%= question.title %></h3></a>
   <p><%= question.body %></p>
+  <p>
+    <span class="points"><%= question.up_points %> up votes</span>
+    <span class="points"><%= question.down_points %> down votes</span>
+    <span class="creator"><%= question.creator.username %></span>
+    <span class="timestamp"><%= question.time_since_creation %> hours ago</span>
+    <span class="comment-count"># of answers: <%= question.answers.count %></span>
+  </p>
   <% end %>
 </ul>

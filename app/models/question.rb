@@ -7,8 +7,12 @@ class Question < ActiveRecord::Base
 
   validates :title, :body, :presence => true
 
-  def points
-    votes.sum(:value)
+  def up_points
+    self.votes.where(value: 1).length
+  end
+
+  def down_points
+    self.votes.where(value: -1).count
   end
 
   def time_since_creation

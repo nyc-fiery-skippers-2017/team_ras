@@ -1,5 +1,11 @@
+<% if @errors %>
+<ul>
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
 <h2 class="question_title">Enter Your Question:</h2>
-
 <form class="question_form" action="/questions" method="post">
   <label for="title">Title:</label>
   <input type="text" name="title" value="" id="title">

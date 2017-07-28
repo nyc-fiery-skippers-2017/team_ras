@@ -1,14 +1,25 @@
+<% if @errors %>
+<ul>
+  <% @errors.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+</ul>
+<% end %>
 <div class="question_container">
-  <form class="" action="/questions/<%= @question.id %>/vote" method="post">
-    <button type="submit" name="submit_param" value="submit_value"></button>
-  </form>
   <h3><%= @question.title %></h3>
   <h5><%= @question.body %></h5>
+  <form class="question_form" action="/questions/<%= @question.id %>/upvote" method="post">
+    <button class="vote_btn up" type="submit" name="submit_param" value="submit_value">upvote</button>
+  </form>
+  <form class="question_form" action="/questions/<%= @question.id %>/downvote" method="post">
+    <button class="vote_btn down" type="submit" name="submit_param" value="submit_value">downvote</button>
+  </form>
   <p>
-    <span class="points"><%= @question.votes %></span>
-    <span class="creator"><%= @question.creator %></span>
-    <span class="timestamp"><%= @question.time_since_creation %></span>
-    <span class="comment-count"><%= @question.answers.comments.count %></span>
+    <span class="points">#<%= @question.up_points %> up votes</span>
+    <span class="points">#<%= @question.down_points %> down votes</span>
+    <span class="creator"><%= @question.creator.username %></span>
+    <span class="timestamp"><%= @question.time_since_creation %> hours ago</span>
+    <span class="comment-count">number of answers: <%= @question.answers.count %></span>
     <a class="delete" href="/questions/<%= @question.id %>"></a>
   </p>
 </div>
