@@ -40,6 +40,7 @@ label[for=question_body] {
   background-color: red;
 }
 
+
 .vote_btn {
   background-color: darkred;
   border: none;
@@ -47,4 +48,11 @@ label[for=question_body] {
   color: white;
   font-size: 14px;
   vertical-align: sub;
+
+.custom-container-profile-page {
+    padding: 0px 50px;
+}
+
+.DBC {
+  vertical-align: text-bottom;
 }

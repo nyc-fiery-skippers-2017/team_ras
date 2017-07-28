@@ -24,29 +24,31 @@
   </p>
 </div>
 
-<h3>Answers:</h3>
-<ul>
-  <% @question.answers.each do |answer| %>
-  <li><%= answer.body %></li>
-    <ul>
-      <h4>Comments:</h4>
-      <% answer.comments.each do |comment| %>
-        <li><%= comment.body %></li>
-      <% end %>
-    </ul>
-    <div class="comments">
-      <form action="/comments/<%= answer.id %>" method="post">
-       <input type="textarea" name="body">
-       <input type="submit" value="Add comment">
-      </form><br>
-    </div>
-  <%end%>
-</ul>
+  <h3>Answers:</h3>
+  <ul>
+    <% @question.answers.each do |answer| %>
+    <li><%= answer.body %></li>
+      <ul class="comments-list">
+        <h4>Comments:</h4>
+        <% answer.comments.each do |comment| %>
+            <%= erb :'_comments', locals: {comment: comment}, layout: false%>
+        <% end %>
+      </ul>
+      <div class="comments">
+        <form action="/comments/<%= answer.id %>" method="post" class="comments_stuff">
+         <input type="textarea" class="comment-body" name="body">
+         <button class="btn waves-effect waves-light" type="submit" name="action">Add Comment
+        </button>
+        </form><br>
+      </div>
+    <%end%>
+  </ul>
 
-<p>Add your answer here:</p>
-<div class="answer_container">
-  <form action="/answers/<%= @question.id %>" method="post">
-    <input type="textarea" name="body">
-    <input type="submit" name="Add answer">
-  </form>
+  <p>Add your answer here:</p>
+  <div class="answer_container">
+    <form action="/answers/<%= @question.id %>" method="post">
+      <input type="textarea" name="body">
+      <input type="submit" name="Add answer">
+    </form>
+  </div>
 </div>

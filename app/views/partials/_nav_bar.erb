@@ -2,10 +2,11 @@
  <%user = current_user%>
  <%if user%>
  <nav>
- <div class="nav-wrapper" id="myTopnav">
-   <a class="brand-logo">Welcome, <%= user.username%></a>
+ <div class="nav-wrapper teal lighten-2" id="myTopnav">
+   <a class="brand-logo"><img src="../imgs/so-icon.png" alt="" height="60" width="60"><span class="DBC">DBC <strong>OVERFLOW</strong></span></a>
    <ul class="right hide-on-med-and-down">
-   <li><a href="/users">Home</a></li>
+     <li><a href="/questions/new">Create Question</a></li>
+   <li><a href="/questions/index">Home</a></li>
    <li><a href="/users/:id">Profile</a></li>
    <li><a href="/logout">Log Out</a></li>
  </div>
@@ -15,6 +16,8 @@
  <div class="nav-wrapper" id="myTopnav">
    <ul class="right hide-on-med-and-down">
    <li><a href="/users">Home</a></li>
+   <li><a href="/questions/new">Create Question</a></li>
+   <a href="/questions/index">Home</a>
    <li><a href="/users/new">Sign up</a></li>
    <li><a href="/login">Log in</a></li>
  </div>
