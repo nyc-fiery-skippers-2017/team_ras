@@ -1,4 +1,6 @@
-
+get '/' do
+  redirect '/questions/index'
+end
 #User login authentication
 get '/login' do
   erb :'/users/login'
