@@ -1,30 +1,71 @@
 <h1><%=@user.username.capitalize%>'s Profile</h1>
   <p>Users Email:<%= @user.email  %></p>
-  <h2>User Comment Info</h2>
-  <div>
-  <% @user.comments.each do |comment_info| %>
-  <p><strong>Comment Id:</strong><%= comment_info.id %></p>
-    <p>User Id:<%= comment_info.commenter_id %></p>
-    <p>Comment body:<%= comment_info.body %></p>
-  <% end %>
+  <h4>User Comment Info</h4>
+  <div >
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Comment Id</th>
+          <th>User Id</th>
+          <th>Comment Body</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.comments.each do |comment_info| %>
+        <tr>
+          <td><%= comment_info.id %></td>
+            <td><%= comment_info.commenter_id %></td>
+            <td><%= comment_info.body %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
 </div>
 
-<h2>User Question info</h2>
+<h4>User Question info</h4>
 <div>
-<% @user.questions.each do |question_info| %>
-  <p>Question Id:<%= question_info.id %></p>
-  <p>Question Body:<%= question_info.body %></p>
-  <p>Creator Id:<%= question_info.creator_id %></p>
-<% end %>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Question Id</th>
+        <th>Question Title</th>
+        <th>Question Body</th>
+        <th>Creator Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.questions.each do |question_info| %>
+      <tr>
+        <td><%= question_info.id %></td>
+        <td><%= question_info.title %></td>
+        <td><%= question_info.body %></td>
+        <td><%= question_info.creator_id %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
-<h2>User Answer info</h2>
+<h4>User Answer info</h4>
 <div>
-<% @user.answers.each do |answer_info| %>
-  <p>Answer Id:<%= answer_info.id %></p>
-  <p>Answer Body:<%= answer_info.body %></p>
-  <p>Responder Id:<%= answer_info.responder_id %></p>
-  <p>Question Id:<%= answer_info.question_id %></p>
-<% end %>
+  <table class="striped">
+    <thead>
+      <tr>
+        <th>Answer Id</th>
+        <th>Answer Body</th>
+        <th>Responder Id</th>
+        <th>Question Id</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.answers.each do |answer_info| %>
+      <tr>
+        <td><%= answer_info.id %></td>
+        <td><%= answer_info.body %></td>
+        <td><%= answer_info.responder_id %></td>
+        <td><%= answer_info.question_id %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-<a href="/logout">Logout</a>
