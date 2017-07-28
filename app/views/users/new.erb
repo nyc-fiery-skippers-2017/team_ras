@@ -1,21 +1,24 @@
-<form action="/users" method="post">
-  <div>
-    <label for="username">Username:</label>
-    <div>
-      <input id="users_email" name="user[username]" type="text"/>
-    </div>
-  </div>
-  <div>
-    <label for="users_email">Email:</label>
-    <div>
-      <input id="users_email" name="user[email]" type="text"/>
-    </div>
-  </div>
-  <div>
-    <label for="users_password">Password</label>
-    <div>
-      <input id="users_password" name="user[password]" type="password" required />
-    </div>
-  </div>
-  <input type="submit" name="" value="Sign up">
-</form>
+
+<div class="row">
+   <form class="col s12" action="/users" method="post">
+     <div class="row">
+       <div class="input-field col s6">
+         <input placeholder="Placeholder" id="username" type="text"  name="user[username]" class="validate">
+         <label for="username">Username:</label>
+       </div>
+     </div>
+     <div class="row">
+       <div class="input-field col s12">
+         <input id="email" type="email" name="user[email]" class="validate">
+         <label for="email">Email</label>
+       </div>
+     </div>
+     <div class="row">
+       <div class="input-field col s12">
+         <input id="users_password" name="user[password]" type="password" required />
+         <label for="password">Password</label>
+       </div>
+     </div>
+      <a class="waves-effect waves-light btn"><input type="submit" name="" value="Sign up"></a>
+   </form>
+ </div>
