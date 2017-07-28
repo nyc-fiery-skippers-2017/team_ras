@@ -38,12 +38,12 @@ end
 #Users Profile
 get '/users/:id' do
   #turning this on requires you to login with a password
-  if logged_in?
-    @user = current_user
+  # if logged_in?
+    @user = User.find_by(id: params[:id])
     erb :'/users/show'
-  else
-   redirect '/login'
-  end
+  # else
+  #  redirect '/login'
+  # end
 end
 
 #Route could change to Homepage

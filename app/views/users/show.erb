@@ -6,7 +6,6 @@
       <thead>
         <tr>
           <th>Comment Id</th>
-          <th>User Id</th>
           <th>Comment Body</th>
         </tr>
       </thead>
@@ -14,8 +13,7 @@
         <% @user.comments.each do |comment_info| %>
         <tr>
           <td><%= comment_info.id %></td>
-            <td><%= comment_info.commenter_id %></td>
-            <td><%= comment_info.body %></td>
+          <td><%= comment_info.body %></td>
         </tr>
         <% end %>
       </tbody>
@@ -30,16 +28,14 @@
         <th>Question Id</th>
         <th>Question Title</th>
         <th>Question Body</th>
-        <th>Creator Id</th>
       </tr>
     </thead>
     <tbody>
       <% @user.questions.each do |question_info| %>
       <tr>
-        <td><%= question_info.id %></td>
+        <td><a href="/questions/<%=question_info.id%>"><%= question_info.id %></a></td>
         <td><%= question_info.title %></td>
         <td><%= question_info.body %></td>
-        <td><%= question_info.creator_id %></td>
       </tr>
       <% end %>
     </tbody>
