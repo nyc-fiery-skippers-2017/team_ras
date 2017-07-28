@@ -1,10 +1,22 @@
 /* Question Form styles */
+.main_title {
+  font-weight: bolder;
+  color: #4db6ac;
+}
+
+.all_question_title {
+  color: #4db6ac;
+}
+
+.all_question_title:hover {
+  text-decoration: underline;
+}
+
 .question_title {
   padding-left: 15px;
 }
 
 .question_form {
-  padding: 20px;
   display: inline;
 }
 
@@ -29,7 +41,7 @@ label[for=question_body] {
 }
 
 .question_form input[type="submit"] {
-  background-color: darkred;
+  background-color: #4db6ac;
   border: none;
   padding: 10px;
   color: white;
@@ -37,18 +49,56 @@ label[for=question_body] {
 }
 
 .question_form input[type="submit"]:hover, .vote_btn:hover {
-  background-color: red;
+  background-color: #b3e0db;
 }
 
+.point_boxes {
+  display: inline-block;
+  border: 1px solid #4db6ac;
+  color: #4db6ac;
+  width: 50px;
+}
+
+.downbox {
+  width: 65px;
+}
+
+.answerbox {
+  width: 105px;
+}
+
+.points_num, .comment-count {
+  text-align: center;
+  margin: 0;
+  font-weight: 800;
+  font-size: 1.2em;
+}
+.vote_name {
+  text-align: center;
+  margin: 0;
+  font-size: 0.7em;
+}
+
+.creator, .timestamp {
+  color: #4db6ac;
+}
+
+/* Vote Section Styling */
 
 .vote_btn {
-  background-color: darkred;
+  background-color: #4db6ac;
   border: none;
-  padding: 5px;
+  padding: 5px 10px;
   color: white;
   font-size: 14px;
   vertical-align: sub;
+}
 
+.vote_btn.up {
+  margin-right: 20px;
+}
+
+/* Custom Styling */
 .custom-container-profile-page {
     padding: 0px 50px;
 }

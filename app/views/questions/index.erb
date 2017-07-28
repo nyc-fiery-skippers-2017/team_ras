@@ -1,15 +1,30 @@
-<h1>All Questions</h1>
+<div class="custom-container-profile-page">
+
+<h1 class="main_title">All Questions</h1>
 <ul>
   <% @questions.each do |question| %>
-  <a href="/questions/<%= question.id %>"><h3><%= question.title %></h3></a>
+  <a href="/questions/<%= question.id %>"><h3 class="all_question_title"><%= question.title %></h3></a>
   <p><%= question.body %></p>
   <p>
-    <span class="points"><%= question.up_points %> up votes</span>
-    <span class="points"><%= question.down_points %> down votes</span>
-    <span class="creator"><%= question.creator.username %></span>
-    <span class="timestamp"><%= question.time_since_creation %> hours ago</span>
-    <span class="comment-count"># of answers: <%= question.answers.count %></span>
+    <div class="point_boxes">
+      <p class="points_num"><%= question.up_points %></p>
+      <p class="vote_name">up votes</p>
+    </div>
+    <div class="point_boxes downbox">
+      <p class="points_num"><%= question.down_points %></p>
+      <p class="vote_name">down votes</p>
+    </div>
+    <div class="point_boxes answerbox">
+      <p class="comment-count"><%= question.answers.count %></p>
+      <p class="vote_name">number of answers</p>
+    </div>
+    <div class="">
+      <span class="creator">By: <%= question.creator.username %></span>
+    </div>
+    <div class="">
+      <span class="timestamp">Created: <%= question.time_since_creation %> hours ago</span>
+    </div>
   </p>
   <% end %>
 </ul>
-
+</div>
