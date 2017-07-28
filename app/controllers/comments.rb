@@ -3,7 +3,11 @@ post '/comments/:answer_id' do
   @answer = Answer.find_by(id: params[:answer_id])
   comment = Comment.new(body: params[:body], commenter_id: current_user.id, commentable: @answer)
   if comment.save
-    redirect "/questions/#{@answer.question_id}"
+    if request.xhr?
+      erb :'_comments', locals: {comment: comment}, layout: false
+    else
+      redirect "/questions/#{@answer.question_id}"
+    end
   else
     @errors = ["Comment could not be saved", "Please try again"]
     redirect "/questions/#{@answer.question_id}"

@@ -1,7 +1,9 @@
-<h1>All Questions</h1>
-<ul>
-  <% @questions.each do |question| %>
-  <a href="/questions/<%= question.id %>"><h4><%= question.title %></h4></a>
-  <p><%= question.body %></p>
-  <% end %>
-</ul>
+<div class="custom-container-profile-page">
+  <h1>All Questions</h1>
+  <ul>
+    <% @questions.each do |question| %>
+    <a href="/questions/<%= question.id %>"><h4><%= question.title %></h4></a>
+    <p><%= question.body %></p>
+    <% end %>
+  </ul>
+</div>
