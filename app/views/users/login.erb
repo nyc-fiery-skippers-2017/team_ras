@@ -1,8 +1,14 @@
+<% if @errors %>
+  <% @errors.each do |error| %>
+    <%= error %>
+  <% end %>
+<% end %>
+
 <form action="/login" method="post">
   <div>
-    <label for="username">Username:</label>
+    <label for="username">Email:</label>
     <div>
-      <input id="username" name="user[username]" type="text"/>
+      <input id="username" name="user[email]" type="text"/>
     </div>
   </div>
   <div>
