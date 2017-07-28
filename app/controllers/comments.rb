@@ -1,12 +1,12 @@
 post '/comments/:answer_id' do
   #:id here is the answer id
   @answer = Answer.find_by(id: params[:answer_id])
-  if logged_in?
-    comment = Comment.new(body: params[:body], commenter_id: current_user.id, commentable: @answer)
-    if comment.save
-      redirect "/questions/#{@answer.question_id}"
+  comment = Comment.new(body: params[:body], commenter_id: current_user.id, commentable: @answer)
+  if comment.save
+    if request.xhr?
+      erb :'_comments', locals: {comment: comment}, layout: false
     else
-      @errors = ["Comment could not be saved", "Please contact the RAS Team"]
+
       redirect "/questions/#{@answer.question_id}"
     end
   else
