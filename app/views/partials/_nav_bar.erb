@@ -1,0 +1,22 @@
+
+ <%user = current_user%>
+ <%if user%>
+ <nav>
+ <div class="nav-wrapper" id="myTopnav">
+   <a class="brand-logo">Welcome, <%= user.username%></a>
+   <ul class="right hide-on-med-and-down">
+   <li><a href="/users">Home</a></li>
+   <li><a href="/users/:id">Profile</a></li>
+   <li><a href="/logout">Log Out</a></li>
+ </div>
+</nav>
+ <% else %>
+ <nav>
+ <div class="nav-wrapper" id="myTopnav">
+   <ul class="right hide-on-med-and-down">
+   <li><a href="/users">Home</a></li>
+   <li><a href="/users/new">Sign up</a></li>
+   <li><a href="/login">Log in</a></li>
+ </div>
+ </nav>
+ <% end %>
