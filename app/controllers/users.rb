@@ -16,11 +16,11 @@ post '/login' do
     erb :'/users/login'
   end
 end
-#User Homepage?
-get '/users' do
 
-  erb :'/users/index'
-end
+# #User Homepage?
+# get '/users' do
+#   erb :'/users/index'
+# end
 
 #create users
 get '/users/new' do

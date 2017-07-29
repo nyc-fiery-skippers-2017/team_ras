@@ -9,7 +9,7 @@ end
 
 post '/questions' do
   if logged_in?
-  @question = Question.new(creator: current_user.id, title: params[:title], body: params[:body])
+  @question = Question.new(creator_id: current_user.id, title: params[:title], body: params[:body])
     if @question.save
       if request.xhr?
         erb :'_comments', locals: {answer: answer}, layout: false
