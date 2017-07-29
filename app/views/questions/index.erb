@@ -1,6 +1,6 @@
 <div class="custom-container-profile-page">
 
-<h1 class="main_title">All Questions</h1>
+<p class="main_title">Top Questions</p>
 <ul>
   <% @questions.each do |question| %>
   <a href="/questions/<%= question.id %>"><h3 class="all_question_title"><%= question.title %></h3></a>

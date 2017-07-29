@@ -16,11 +16,6 @@ post '/login' do
     erb :'/users/login'
   end
 end
-#User Homepage?
-get '/users' do
-
-  erb :'/users/index'
-end
 
 #create users
 get '/users/new' do
@@ -40,17 +35,13 @@ end
 
 #Users Profile
 get '/users/:id' do
-  #turning this on requires you to login with a password
-  if logged_in?
-    @user = current_user
-    erb :'/users/show'
-  else
-   redirect '/login'
-  end
+ @user = User.find_by(id: params[:id])
+ session[:user_id] = @user.id
+ erb :'/users/show'
 end
 
 #Route could change to Homepage
 get '/logout' do
   session.clear
-  redirect '/users'
+  redirect '/'
 end

@@ -6,6 +6,11 @@
 
 .all_question_title {
   color: #4db6ac;
+  font-size: 2em;
+}
+
+.tables {
+  margin-left: 50px;
 }
 
 .all_question_title:hover {
