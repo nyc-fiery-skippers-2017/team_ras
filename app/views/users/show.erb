@@ -12,7 +12,6 @@
     <tbody>
       <% @user.questions.each do |question| %>
       <tr>
-        <td><a href="/questions/<%=question_info.id%>"><%= question_info.id %></a></td>
         <td><%= question.title %></td>
         <td><%= question.body %></td>
       </tr>
