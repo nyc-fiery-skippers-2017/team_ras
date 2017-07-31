@@ -7,5 +7,7 @@ class CreateComments < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :comments, [:commenter_id, :commentable_id, :commentable_type], :unique => true
   end
 end
