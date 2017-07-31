@@ -7,5 +7,7 @@ class CreateVotes < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    # fun times with rakey
   end
 end
