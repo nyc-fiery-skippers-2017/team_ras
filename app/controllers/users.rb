@@ -1,7 +1,7 @@
 get '/' do
   redirect '/questions/index'
 end
-#User login authentication
+
 get '/login' do
   erb :'/users/login'
 end
@@ -17,7 +17,6 @@ post '/login' do
   end
 end
 
-#create users
 get '/users/new' do
   erb :'/users/new'
 end
@@ -33,14 +32,12 @@ post '/users' do
   end
 end
 
-#Users Profile
 get '/users/:id' do
  @user = User.find_by(id: params[:id])
  session[:user_id] = @user.id
  erb :'/users/show'
 end
 
-#Route could change to Homepage
 get '/logout' do
   session.clear
   redirect '/'

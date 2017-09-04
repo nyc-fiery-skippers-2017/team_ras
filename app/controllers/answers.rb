@@ -1,5 +1,4 @@
 post '/answers/:question_id' do
-  #:id here is the answer id
   @question = Question.find_by(id: params[:question_id])
   if logged_in?
     new_answer = Answer.new(body: params[:body], responder_id: current_user.id, question_id: @question.id)
@@ -10,7 +9,7 @@ post '/answers/:question_id' do
         redirect "/questions/#{@question.id}"
       end
     else
-      @errors = ["Answer could not be saved", "Please contact the RAS Team"]
+      @errors = ["Answer could not be saved", "Please contact the our team"]
       redirect "/questions/#{@question.id}"
     end
   else

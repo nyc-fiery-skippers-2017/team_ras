@@ -1,30 +1,30 @@
 <div class="custom-container-profile-page">
 
-<p class="main_title">Top Questions</p>
-<ul>
-  <% @questions.each do |question| %>
-  <a href="/questions/<%= question.id %>"><h3 class="all_question_title"><%= question.title %></h3></a>
-  <p><%= question.body %></p>
-  <p>
-    <div class="point_boxes">
-      <p class="points_num"><%= question.up_points %></p>
-      <p class="vote_name">up votes</p>
-    </div>
-    <div class="point_boxes downbox">
-      <p class="points_num"><%= question.down_points %></p>
-      <p class="vote_name">down votes</p>
-    </div>
-    <div class="point_boxes answerbox">
-      <p class="comment-count"><%= question.answers.count %></p>
-      <p class="vote_name">number of answers</p>
-    </div>
-    <div class="">
-      <span class="creator">By: <%= question.creator.username %></span>
-    </div>
-    <div class="">
-      <span class="timestamp">Created: <%= question.time_since_creation %> hours ago</span>
-    </div>
-  </p>
-  <% end %>
-</ul>
+  <p class="main_title">Top Questions</p>
+    <ul>
+      <% @questions.each do |question| %>
+      <a href="/questions/<%= question.id %>"><h3 class="all_question_title"><%= question.title %></h3></a>
+      <p><%= question.body %></p>
+      <p>
+        <div class="point_boxes">
+          <p class="points_num"><%= question.up_points %></p>
+          <p class="vote_name">up votes</p>
+        </div>
+        <div class="point_boxes downbox">
+          <p class="points_num"><%= question.down_points %></p>
+          <p class="vote_name">down votes</p>
+        </div>
+        <div class="point_boxes answerbox">
+          <p class="comment-count"><%= question.answers.count %></p>
+          <p class="vote_name">number of answers</p>
+        </div>
+        <div class="">
+          <span class="creator">By: <%= question.creator.username %></span>
+        </div>
+        <div class="">
+          <span class="timestamp">Created: <%= question.time_since_creation %> hours ago</span>
+        </div>
+      </p>
+      <% end %>
+    </ul>
 </div>
