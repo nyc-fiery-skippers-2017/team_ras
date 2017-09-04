@@ -1,11 +1,13 @@
 <div class="custom-container-profile-page">
+
 <% if @errors %>
-<ul>
-  <% @errors.each do |error| %>
-    <li><%= error %></li>
-  <% end %>
-</ul>
+  <ul>
+    <% @errors.each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
 <% end %>
+
 <div class="question_container">
   <h3><%= @question.title %></h3>
   <h5><%= @question.body %></h5>

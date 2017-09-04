@@ -42,22 +42,22 @@
 
 
 <p><i>Your Answers:</i></p>
-<div class="tables">
-  <table class="striped">
-    <thead>
-      <tr>
-        <th>Answer</th>
-        <th>For Question</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @user.answers.each do |answer| %>
-      <tr>
-        <td><%= answer.body %></td>
-        <td><%= answer.question.title %></td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
+  <div class="tables">
+    <table class="striped">
+      <thead>
+        <tr>
+          <th>Answer</th>
+          <th>For Question</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @user.answers.each do |answer| %>
+        <tr>
+          <td><%= answer.body %></td>
+          <td><%= answer.question.title %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

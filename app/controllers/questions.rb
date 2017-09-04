@@ -28,7 +28,7 @@ post '/questions/:id/upvote' do
     @vote = @question.votes.create(voter_id: current_user.id, value: 1)
     redirect "/questions/#{@question.id}"
   else
-    @errors = ["Please log in..."]
+    @errors = ["You need to be logged in to cast a  vote"]
     redirect '/login'
   end
 end
@@ -39,7 +39,7 @@ post '/questions/:id/downvote' do
   @vote = @question.votes.create(voter_id: current_user.id, value: -1)
   redirect "/questions/#{@question.id}"
   else
-    @errors = ["Please log in..."]
+    @errors = ["You need to be logged in to cast a  vote"]
     redirect '/login'
   end
 end
